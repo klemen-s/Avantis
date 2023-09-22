@@ -11,13 +11,15 @@ function Home() {
         <div className="home-page-image-overlay" />
         <img
           className="home-page-image"
-          src={homeImage2}
+          src={homeImage1}
           alt="Picture for the Home Page"
         />
         <div className="home-page-text">
           <h1>AVANTIS</h1>
           <p>Your fashion, our responsibility.</p>
         </div>
+        <Navbar />
+        <Outlet />
       </div>
     </div>
   );
