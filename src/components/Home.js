@@ -2,7 +2,6 @@ import "./Home.css";
 import homeImage1 from "../assets/home-4.jpg";
 import homeImage2 from "../assets/home-3.jpg";
 import Navbar from "./Navbar";
-import { Outlet, Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -19,7 +18,6 @@ function Home() {
           <p>Your fashion, our responsibility.</p>
         </div>
         <Navbar />
-        <Outlet />
       </div>
     </div>
   );
