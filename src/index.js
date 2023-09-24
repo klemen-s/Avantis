@@ -4,14 +4,23 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home";
 import ErrorPage from "./components/ErrorPage";
+import Men from "./components/Men";
+import Women from "./components/Women";
+import Cart from "./components/Cart";
+import Login from "./components/Login";
+import WishList from "./components/WishList";
 
 const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <ErrorPage />,
     element: <Home />,
-    children: []
   },
+  { path: "/cart", element: <Cart /> },
+  { path: "/men", element: <Men /> },
+  { path: "/women", element: <Women /> },
+  { path: "/login", element: <Login /> },
+  { path: "/wish-list", element: <WishList /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

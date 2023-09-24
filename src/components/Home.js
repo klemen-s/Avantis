@@ -23,7 +23,6 @@ function Home() {
     <div className="home-page">
       <div className="home-page-image-wrapper">
         <div className="home-page-image-overlay" />
-
         <img
           className="home-page-image"
           src={images[imageIndex]}

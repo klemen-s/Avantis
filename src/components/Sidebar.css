@@ -1,0 +1,131 @@
+.sidebar {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateX(100%);
+  transition-property: transform;
+}
+
+.open {
+  transform: translateX(0);
+  transition: cubic-bezier(.3,.46,.45,.94) .57s;
+}
+
+.sidebar-upper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.sidebar-upper h1 {
+  position: absolute;
+  left: 1rem;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.x-button-wrapper-button {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  right: 2rem;
+  cursor: pointer;
+}
+
+.x-button-wrapper-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sidebar-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 16%;
+  left: 1rem;
+}
+
+.sidebar-content-element-spacer {
+  width: 100%;
+  height: 4rem;
+}
+
+.grey-line {
+  height: 2px;
+  width: 90%;
+  margin-top: 0.8rem;
+  background-color: var(--my-grey);
+}
+
+/* Color for "Link" Component */
+.sidebar-content a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--my-black);
+}
+
+.sidebar-content-sign-in-wish-list p {
+  position: relative;
+  top: 0.65rem;
+  left: 3.3rem;
+}
+
+.user-icon-wrapper {
+  width: 4rem;
+  position: absolute;
+  left: -1rem;
+}
+
+.user-icon-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+.heart-icon-wrapper {
+  position: absolute;
+  width: 2.5rem;
+  left: -0.3rem;
+}
+
+.heart-icon-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+#heart-icon-text {
+  top: 0.1rem;
+}
+
+.sidebar-content-footer {
+  position: relative;
+  top: 1.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+#footer-text-one {
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+.sidebar-footer-time {
+  opacity: 0.5;
+}
+
+#footer-text-two {
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+
+#footer-text-two span {
+  text-decoration: underline;
+}
