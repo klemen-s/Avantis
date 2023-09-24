@@ -26,7 +26,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className={isSidebarActive ? "sidebar" : "sidebar open"}>
+      <div className={isSidebarActive ? "sidebar open" : "sidebar"}>
         <div className="sidebar-upper">
           <h1>AVANTIS</h1>
           <div className="x-button-wrapper-button" onClick={clickHandler}>

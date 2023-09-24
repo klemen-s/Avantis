@@ -13,7 +13,12 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
+  opacity: 1;
+  transition: opacity 2s;
 }
+
+
+
 
 .home-page-image-overlay {
   background-color: rgba(0, 0, 0, 0.25);
@@ -46,4 +51,21 @@
 
 .home-page-text p {
   font-size: 0.875rem;
+}
+
+.image-slider-buttons {
+  position: absolute;
+  width: 100%;
+  height: 3rem;
+  bottom: -0.5rem;
+}
+
+.image-slider-buttons-centered {
+  width: 2.7rem;
+  margin: 0 auto;
+}
+
+input[type="radio"] {
+  accent-color: var(--my-black);
+  cursor:pointer;
 }
