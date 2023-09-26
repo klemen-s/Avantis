@@ -1,13 +1,12 @@
 :root {
   --my-white: #fafaff;
-  --my-black: #1C1C1C;
-  --my-grey: #DADDD8;
+  --my-black: #1c1c1c;
+  --my-grey: #daddd8;
 }
 
 html {
   box-sizing: border-box;
   font-family: "Sanchez", sans-serif;
-
 }
 
 body,
@@ -33,12 +32,3 @@ body {
   height: 100vh;
   width: 100%;
 }
-
-.container {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 6rem;
-  left: 0;
-}
-

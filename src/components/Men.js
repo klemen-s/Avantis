@@ -1,7 +1,15 @@
 import "./Men.css";
+import Product from "./Product";
 
 function Men() {
-  return <div className="container">Men</div>;
+  return (
+    <>
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+    </>
+  );
 }
 
 export default Men;

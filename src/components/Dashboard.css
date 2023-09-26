@@ -1,8 +1,23 @@
 .dashboard-container {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  top: 6rem;
+}
+
+.products-list {
+  width: 75%;
+  min-height: 100vh;
+  margin: 0 auto;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
 }

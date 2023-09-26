@@ -1,9 +1,7 @@
 import "./WishList.css"
 
 function WishList() {
-  return (
-    <div className="container">WishList</div>
-  )
+  return <div>Women</div>;
 }
 
 export default WishList
