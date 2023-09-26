@@ -2,7 +2,7 @@ import "./Cart.css"
 
 function Cart() {
   return (
-    <div>Cart</div>
+    <div className="container">Cart</div>
   )
 }
 

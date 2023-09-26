@@ -1,8 +1,7 @@
+import "./Men.css";
 
 function Men() {
-  return (
-    <div>Men</div>
-  )
+  return <div className="container">Men</div>;
 }
 
-export default Men
+export default Men;

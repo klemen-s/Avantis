@@ -2,7 +2,7 @@ import "./WishList.css"
 
 function WishList() {
   return (
-    <div>WishList</div>
+    <div className="container">WishList</div>
   )
 }
 

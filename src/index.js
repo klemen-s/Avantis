@@ -9,6 +9,8 @@ import Women from "./components/Women";
 import Cart from "./components/Cart";
 import Login from "./components/Login";
 import WishList from "./components/WishList";
+import Dashboard from "./components/Dashboard";
+import Navbar from "./components/Navbar";
 
 const router = createBrowserRouter([
   {
@@ -16,11 +18,17 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     element: <Home />,
   },
-  { path: "/cart", element: <Cart /> },
-  { path: "/men", element: <Men /> },
-  { path: "/women", element: <Women /> },
-  { path: "/login", element: <Login /> },
-  { path: "/wish-list", element: <WishList /> },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      { path: "cart", element: <Cart /> },
+      { path: "men", element: <Men /> },
+      { path: "women", element: <Women /> },
+      { path: "login", element: <Login /> },
+      { path: "wish-list", element: <WishList /> },
+    ],
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

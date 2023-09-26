@@ -3,9 +3,10 @@ import menuX from "../assets/menu-x.png";
 import hertIcon from "../assets/heart-emoji.png";
 import userIcon from "../assets/user-icon.png";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Sidebar({ params }) {
+
   return (
     <div className={params.isSidebarActive ? "sidebar open" : "sidebar"}>
       <div className="sidebar-upper">
@@ -17,13 +18,13 @@ function Sidebar({ params }) {
       <div className="sidebar-content">
         <div className="sidebar-content-element-spacer">
           <p>
-            <Link to={"/men"}>MEN</Link>
+            <Link to={"/dashboard/men"}>MEN</Link>
           </p>
           <div className="grey-line"></div>
         </div>
         <div className="sidebar-content-element-spacer">
           <p>
-            <Link to={"/women"}>WOMEN</Link>
+            <Link to={"/dashboard/women"}>WOMEN</Link>
           </p>
           <div className="grey-line"></div>
         </div>
@@ -33,7 +34,7 @@ function Sidebar({ params }) {
               <img src={userIcon} alt="User Icon" />
             </div>
             <p>
-              <Link to={"/login"}>Sign In / Register</Link>
+              <Link to={"/dashboard/login"}>Sign In / Register</Link>
             </p>
           </div>
           <div className="sidebar-content-element-spacer">
@@ -41,7 +42,7 @@ function Sidebar({ params }) {
               <img src={hertIcon} alt="Heart Icon" />
             </div>
             <p id="heart-icon-text">
-              <Link to={"/wish-list"}>Wish List</Link>
+              <Link to={"/dashboard/wish-list"}>Wish List</Link>
             </p>
           </div>
           <div className="grey-line"></div>

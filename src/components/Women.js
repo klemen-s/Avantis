@@ -2,7 +2,7 @@ import "./Women.css"
 
 function Women() {
   return (
-    <div>Women</div>
+    <div className="container">Women</div>
   )
 }
 

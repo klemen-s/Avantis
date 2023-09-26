@@ -3,21 +3,39 @@ import "./Navbar.css";
 import shoppingCartIcon from "../assets/shopping-cart.png";
 import navbarButtonIcon from "../assets/navbar-button.png";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
-import { Link } from "react-router-dom";
+import { Link, useLocation, Outlet } from "react-router-dom";
 
 function Navbar() {
   const [isSidebarActive, setisSidebarActive] = useState(false);
+  const [isHomePage, setisHomePage] = useState(true);
+
+  let location = useLocation();
 
   const clickHandler = () => setisSidebarActive(!isSidebarActive);
+
+  useEffect(() => {
+    setisSidebarActive(false); // new page = close sidebar
+
+    if (location.pathname === "/") {
+      setisHomePage(true);
+    } else {
+      setisHomePage(false);
+    }
+  }, [location]);
 
   return (
     <div>
       <div className="navbar">
+        {!isHomePage && (
+          <h1 className="navbar-title">
+            <Link to={"/"}>AVANTIS</Link>
+          </h1>
+        )}
         <div className="navbar-buttons-wrapper">
           <div className="navbar-image-wrapper">
-            <Link to={"/cart"}>
+            <Link to={"/dashboard/cart"}>
               <img src={shoppingCartIcon} alt="Shopping Cart Icon" />
             </Link>
           </div>
