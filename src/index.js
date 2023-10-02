@@ -10,7 +10,7 @@ import Cart from "./components/Cart";
 import Login from "./components/Login";
 import WishList from "./components/WishList";
 import Dashboard from "./components/Dashboard";
-import Navbar from "./components/Navbar";
+import ProductDetails from "./components/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +27,7 @@ const router = createBrowserRouter([
       { path: "women", element: <Women /> },
       { path: "login", element: <Login /> },
       { path: "wish-list", element: <WishList /> },
+      { path: "product/:productId", element: <ProductDetails /> },
     ],
   },
 ]);
