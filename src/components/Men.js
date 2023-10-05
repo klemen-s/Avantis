@@ -3,12 +3,17 @@ import Product from "./Product";
 import axios from "axios";
 
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Men() {
   const [products, setProducts] = useState([]);
 
   const productsList = products.map((product) => {
-    return <Product product={product} key={product._id} />;
+    return (
+      <Link to={"/dashboard/product/" + product._id} key={product._id}>
+        <Product product={product}></Product>
+      </Link>
+    );
   });
 
   useEffect(() => {

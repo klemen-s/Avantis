@@ -21,6 +21,10 @@ function ProductDetails() {
       .catch((err) => console.log(err));
   }, []);
 
+  const addToCartHandler = () => {
+    console.log("Added To Cart");
+  };
+
   return (
     <>
       <div className="product-detail-image-wrapper">
@@ -37,11 +41,15 @@ function ProductDetails() {
       {product.sizes && (
         <div className="sizes-container">
           {product.sizes.map((size) => (
-            <button className="size-btn" key={size}>{size}</button>
+            <button className="size-btn" key={size}>
+              {size}
+            </button>
           ))}
         </div>
       )}
-      <button className="add-to-cart-btn">Add To Cart</button>
+      <button className="add-to-cart-btn" onClick={addToCartHandler}>
+        Add To Cart
+      </button>
     </>
   );
 }

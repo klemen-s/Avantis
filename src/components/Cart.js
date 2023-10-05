@@ -40,6 +40,10 @@ function Cart() {
         />
       </div>
       <div className="checkout">
+        <div className="total-spend">
+          <p>Total:</p>
+          <p>£{99.99 /* Add dynamic value of the sum of value of items */}</p>
+        </div>
         <button onClick={checkoutHandler}>Checkout</button>
       </div>
     </>

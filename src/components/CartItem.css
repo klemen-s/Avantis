@@ -32,9 +32,9 @@
 
 .remove-item {
   position: absolute;
-  top: 0;
+  top: 3px;
   right: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   cursor: pointer;
 }
