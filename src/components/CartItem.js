@@ -3,15 +3,19 @@ import bootImage from "../assets/black-leather-boots-2.jpg";
 import iconX from "../assets/menu-x.png";
 
 function CartItem({ cartItem }) {
-    const removeHandler = () => {
-      console.log("Removed")
+  const removeHandler = () => {
+    console.log("Removed");
   };
 
   return (
     <>
-      <div className="cart-item">
+      <div className="cart-item" >
         <div className="cart-item-image-wrapper">
-          <img className="cart-item-image" src={bootImage} alt="Cart Item" />
+          <img
+            className="cart-item-image"
+            src={cartItem.imageUrl}
+            alt="Cart Item"
+          />
         </div>
         <div className="cart-item-info">
           <h1>{cartItem.name}</h1>

@@ -1,7 +1,20 @@
 import "./Cart.css";
 import CartItem from "./CartItem";
 
+import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
+
 function Cart() {
+  const cart = useContext(CartContext);
+
+  const cartItems = cart.map((cartItem, i) => {
+    return <CartItem cartItem={cartItem} key={i} />;
+  });
+
+  const totalPrice = cart.reduce((acc, cartItem) => {
+    return acc + cartItem.price * cartItem.quantity;
+  }, 0);
+
   const checkoutHandler = () => {
     console.log("Checkout");
   };
@@ -10,39 +23,11 @@ function Cart() {
     <>
       <h1 className="cart-heading">Cart</h1>
       <div className="grey-line"></div>
-      <div className="cart-items-container">
-        <CartItem
-          cartItem={{
-            name: "Boots",
-            id: "1",
-            quantity: 2,
-            price: 99.99,
-            size: "L",
-          }}
-        />{" "}
-        <CartItem
-          cartItem={{
-            name: "Boots",
-            id: "1",
-            quantity: 2,
-            price: 99.99,
-            size: "L",
-          }}
-        />{" "}
-        <CartItem
-          cartItem={{
-            name: "Boots",
-            id: "1",
-            quantity: 2,
-            price: 99.99,
-            size: "L",
-          }}
-        />
-      </div>
+      <div className="cart-items-container">{cartItems}</div>
       <div className="checkout">
         <div className="total-spend">
           <p>Total:</p>
-          <p>£{99.99 /* Add dynamic value of the sum of value of items */}</p>
+          <p>£{parseFloat(totalPrice).toFixed(2)}</p>
         </div>
         <button onClick={checkoutHandler}>Checkout</button>
       </div>

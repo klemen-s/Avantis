@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react";
 import "./ProductDetails.css";
+
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { CartContext, CartDispatchContext } from "../context/CartContext";
 
 import axios from "axios";
 
 function ProductDetails() {
   let { productId } = useParams();
-
-  //   const [sizes, setSizes] = useState([]);
   const [product, setProduct] = useState({});
+  const [size, setSize] = useState(undefined);
+
+  const cart = useContext(CartContext);
+  const dispatch = useContext(CartDispatchContext);
 
   useEffect(() => {
     axios({
@@ -22,7 +26,26 @@ function ProductDetails() {
   }, []);
 
   const addToCartHandler = () => {
-    console.log("Added To Cart");
+    if (size !== undefined) {
+      const price = product.price.slice(1);
+
+      dispatch({
+        type: "added",
+        product: {
+          productName: product.name,
+          size: size,
+          quantity: 1,
+          imageUrl: product.imageUrl,
+          price: parseFloat(price).toFixed(2),
+          id: product._id,
+        },
+      });
+      setSize(undefined);
+    }
+  };
+
+  const sizeHandler = (size) => {
+    setSize(size);
   };
 
   return (
@@ -41,7 +64,11 @@ function ProductDetails() {
       {product.sizes && (
         <div className="sizes-container">
           {product.sizes.map((size) => (
-            <button className="size-btn" key={size}>
+            <button
+              className="size-btn"
+              key={size}
+              onClick={() => sizeHandler(size)}
+            >
               {size}
             </button>
           ))}
