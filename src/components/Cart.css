@@ -1,5 +1,40 @@
-.cart-container {
-  width: 100%;
-  height: 100vh;
+.cart-heading {
+  font-weight: 400;
   position: absolute;
+  top: 0;
+}
+
+.grey-line {
+  height: 2px;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 2rem;
+  background-color: var(--my-grey);
+}
+
+.cart-items-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.checkout {
+  width: 100%;
+  height: 2.8rem;
+}
+
+.checkout button {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--my-black);
+  background-color: white;
+  color: var(--my-black);
+  font-size: 1.2rem;
+}
+
+.checkout button:hover {
+  background-color: var(--my-black);
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
 }

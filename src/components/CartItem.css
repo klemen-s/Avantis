@@ -1,0 +1,40 @@
+.cart-item {
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  position: relative;
+}
+
+.cart-item-image-wrapper {
+  width: 8rem;
+  height: 9rem;
+}
+
+.cart-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-item-info {
+  width: 50%;
+  margin-left: 1rem;
+}
+
+.cart-item-info h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cart-item-info p {
+  margin-bottom: 0.8rem;
+}
+
+.remove-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}

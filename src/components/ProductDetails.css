@@ -39,7 +39,7 @@
 
 .size-btn:hover {
   background-color: var(--my-black);
-  color: var(--my-white);
+  color: white;
   cursor: pointer;
 }
 
@@ -47,10 +47,14 @@
   width: 100%;
   height: 3rem;
   font-size: 1.3rem;
-  border-radius: 1rem;
   border: none;
-  background-color: var(--my-white);
+  background-color: white;
   color: var(--my-black);
   cursor: pointer;
-  box-shadow: 0px 4px 7px -3px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--my-black);
+}
+
+.add-to-cart-btn:hover {
+  color: white;
+  background-color: var(--my-black);
 }
