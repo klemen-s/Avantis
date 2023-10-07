@@ -2,14 +2,19 @@ import "./CartItem.css";
 import bootImage from "../assets/black-leather-boots-2.jpg";
 import iconX from "../assets/menu-x.png";
 
+import { CartDispatchContext } from "../context/CartContext";
+import { useContext } from "react";
+
 function CartItem({ cartItem }) {
+  const dispatch = useContext(CartDispatchContext);
+
   const removeHandler = () => {
-    console.log("Removed");
+    dispatch({type : "removed", product: cartItem})
   };
 
   return (
     <>
-      <div className="cart-item" >
+      <div className="cart-item">
         <div className="cart-item-image-wrapper">
           <img
             className="cart-item-image"

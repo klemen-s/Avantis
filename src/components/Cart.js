@@ -7,11 +7,11 @@ import { useContext } from "react";
 function Cart() {
   const cart = useContext(CartContext);
 
-  const cartItems = cart.map((cartItem, i) => {
+  const cartItems = cart?.map((cartItem, i) => {
     return <CartItem cartItem={cartItem} key={i} />;
   });
 
-  const totalPrice = cart.reduce((acc, cartItem) => {
+  const totalPrice = cart?.reduce((acc, cartItem) => {
     return acc + cartItem.price * cartItem.quantity;
   }, 0);
 
@@ -27,7 +27,7 @@ function Cart() {
       <div className="checkout">
         <div className="total-spend">
           <p>Total:</p>
-          <p>£{parseFloat(totalPrice).toFixed(2)}</p>
+          <p>£{totalPrice ? parseFloat(totalPrice).toFixed(2) : 0}</p>
         </div>
         <button onClick={checkoutHandler}>Checkout</button>
       </div>

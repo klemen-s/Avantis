@@ -3,9 +3,9 @@ export function cartReducer(cart, action) {
     case "added": {
       let duplicatedItem = false;
 
-      const newCart = cart.map((cartItem) => {
+      const newCart = cart?.map((cartItem) => {
         if (
-          cartItem.name === action.product.name &&
+          cartItem.id === action.product.id &&
           cartItem.size === action.product.size
         ) {
           duplicatedItem = true;
@@ -19,7 +19,22 @@ export function cartReducer(cart, action) {
         return newCart;
       }
 
-      return [...cart, { ...action.product }];
+      if (cart) {
+        return [...cart, { ...action.product }];
+      } else {
+        return [];
+      }
+    }
+    case "removed": {
+      const removeItemIndex = cart.findIndex(
+        (cartItem) =>
+          cartItem.id === action.product.id &&
+          cartItem.size === action.product.size
+      );
+
+      cart.splice(removeItemIndex, 1);
+
+      return [...cart];
     }
     default: {
       throw Error("Unknown action: " + action.type);
