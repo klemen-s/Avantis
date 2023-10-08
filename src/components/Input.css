@@ -1,0 +1,32 @@
+.input-element {
+  width: 100%;
+  height: 5rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-title {
+  margin-bottom: 0.3rem;
+}
+
+.input-element input {
+  width: 100%;
+  height: 2.5rem;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+  border: 1px solid var(--my-black);
+  box-sizing: border-box;
+}
+
+.input-error-message {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  color: var(--my-red);
+}
+
+.input-error input {
+  border: 1px solid var(--my-red);
+}
+
+.input-element input:focus {
+  border: 1px solid var(--my-black);
+}

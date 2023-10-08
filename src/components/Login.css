@@ -1,0 +1,40 @@
+.login-container {
+  width: 100%;
+  height: 60vh;
+}
+
+.login-register-btn-container {
+  width: 10rem;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.login-btn {
+  width: 100%;
+  height: 2.8rem;
+  background-color: var(--my-black);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.register-btn {
+  width: 100%;
+  height: 2.8rem;
+  color: var(--my-black);
+  background-color: white;
+  padding: 0;
+  border: 1px solid var(--my-black);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.login-btn:hover {
+  color: var(--my-black);
+  background-color: white;
+  border: 1px solid var(--my-black);
+}
