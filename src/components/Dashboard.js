@@ -17,7 +17,7 @@ function Dashboard() {
               <Outlet />
             </div>
           </div>
-          <Navbar />
+          <Navbar cartItemsLength={cart.length} />
         </div>
       </CartDispatchContext.Provider>
     </CartContext.Provider>

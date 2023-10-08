@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import { Link, useLocation, Outlet } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ cartItemsLength }) {
   const [isSidebarActive, setisSidebarActive] = useState(false);
   const [isHomePage, setisHomePage] = useState(true);
 
@@ -37,6 +37,7 @@ function Navbar() {
           <div className="navbar-image-wrapper">
             <Link to={"/dashboard/cart"}>
               <img src={shoppingCartIcon} alt="Shopping Cart Icon" />
+              <p className="cart-items-length">{cartItemsLength}</p>
             </Link>
           </div>
           <div className="navbar-image-wrapper" onClick={clickHandler}>

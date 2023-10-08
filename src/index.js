@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import WishList from "./components/WishList";
 import Dashboard from "./components/Dashboard";
 import ProductDetails from "./components/ProductDetails";
+import Register from "./components/Register";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: "men", element: <Men /> },
       { path: "women", element: <Women /> },
       { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> },
       { path: "wish-list", element: <WishList /> },
       { path: "product/:productId", element: <ProductDetails /> },
     ],
