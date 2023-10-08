@@ -1,13 +1,13 @@
 .cart-item {
   width: 100%;
-  height: 10rem;
+  min-height: 10rem;
   display: flex;
   position: relative;
 }
 
 .cart-item-image-wrapper {
   width: 8rem;
-  height: 9rem;
+  height: 10rem;
 }
 
 .cart-item-image {
@@ -22,8 +22,9 @@
 }
 
 .cart-item-info h1 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 0.5rem;
+  width: 75%;
 }
 
 .cart-item-info p {

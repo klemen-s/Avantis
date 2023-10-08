@@ -11,7 +11,6 @@ function ProductDetails() {
   const [product, setProduct] = useState({});
   const [size, setSize] = useState(undefined);
 
-  const cart = useContext(CartContext);
   const dispatch = useContext(CartDispatchContext);
 
   useEffect(() => {

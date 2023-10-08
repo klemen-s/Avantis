@@ -23,7 +23,7 @@ function CartItem({ cartItem }) {
           />
         </div>
         <div className="cart-item-info">
-          <h1>{cartItem.name}</h1>
+          <h1>{cartItem.productName}</h1>
           <p>Size: {cartItem.size}</p>
           <p>Quantity: {cartItem.quantity}</p>
           <p>£{cartItem.price}</p>

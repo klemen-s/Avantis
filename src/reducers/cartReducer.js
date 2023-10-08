@@ -2,6 +2,7 @@ export function cartReducer(cart, action) {
   switch (action.type) {
     case "added": {
       let duplicatedItem = false;
+      console.log(action.product)
 
       const newCart = cart?.map((cartItem) => {
         if (
@@ -9,11 +10,13 @@ export function cartReducer(cart, action) {
           cartItem.size === action.product.size
         ) {
           duplicatedItem = true;
-          return { ...cartItem, quantity: cartItem.quantity++ };
+          return { ...cartItem, quantity: cartItem.quantity+1 };
         } else {
-          return cartItem;
+          return {...cartItem};
         }
       });
+
+      console.log(newCart);
 
       if (duplicatedItem) {
         return newCart;
