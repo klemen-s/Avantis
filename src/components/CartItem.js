@@ -1,15 +1,14 @@
 import "./CartItem.css";
-import bootImage from "../assets/black-leather-boots-2.jpg";
 import iconX from "../assets/menu-x.png";
 
 import { CartDispatchContext } from "../context/CartContext";
 import { useContext } from "react";
 
 function CartItem({ cartItem }) {
-  const dispatch = useContext(CartDispatchContext);
+  const dispatchCart = useContext(CartDispatchContext);
 
   const removeHandler = () => {
-    dispatch({type : "removed", product: cartItem})
+    dispatchCart({ type: "removed", product: cartItem });
   };
 
   return (

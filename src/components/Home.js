@@ -4,7 +4,7 @@ import homeImage2 from "../assets/home-3.jpg";
 import Navbar from "./Navbar";
 import { useEffect, useState } from "react";
 
-function Home() {
+function Home({ cartItemsLength }) {
   const [imageIndex, setImageIndex] = useState(0);
   const images = [homeImage1, homeImage2];
 
@@ -26,7 +26,7 @@ function Home() {
         <img
           className="home-page-image"
           src={images[imageIndex]}
-          alt="Picture for the Home Page"
+          alt="Home Page"
         />
         <div className="home-page-text">
           <h1>AVANTIS</h1>
@@ -50,7 +50,7 @@ function Home() {
             />
           </div>
         </div>
-        <Navbar />
+        <Navbar cartItemsLength={cartItemsLength} />
       </div>
     </div>
   );

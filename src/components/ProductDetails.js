@@ -2,7 +2,7 @@ import "./ProductDetails.css";
 
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { CartContext, CartDispatchContext } from "../context/CartContext";
+import { CartDispatchContext } from "../context/CartContext";
 
 import axios from "axios";
 
@@ -53,7 +53,7 @@ function ProductDetails() {
         <img
           className="product-detail-image"
           src={product.imageUrl}
-          alt="Product Image"
+          alt="Product"
         />
       </div>
       <div className="product-detail-info">

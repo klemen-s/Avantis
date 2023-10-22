@@ -10,7 +10,7 @@ function Women() {
 
   const productsList = products.map((product) => {
     return (
-      <Link to={"/dashboard/product/" + product._id} key={product._id}>
+      <Link to={"/product/" + product._id} key={product._id}>
         <Product product={product}></Product>
       </Link>
     );

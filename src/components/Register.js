@@ -68,7 +68,7 @@ function Register() {
         <button className="login-btn" onClick={registerHandler}>
           Register
         </button>
-        <Link to={"/dashboard/login"}>
+        <Link to={"/login"}>
           <button className="register-btn">Sign In</button>
         </Link>
       </div>
