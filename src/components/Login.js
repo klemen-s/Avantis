@@ -19,11 +19,29 @@ function Login() {
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
 
+  const [emailInputValue, setEmailInputValue] = useState("");
+  const [passwordInputValue, setPasswordInputValue] = useState("");
 
   const loginHandler = () => {
+    if (emailInputValue.length === 0) {
+      setIsEmailCorrect(false);
+      setEmailErrorMessage("Fill out the missing field.");
+      return;
+    }
+
+    setIsEmailCorrect(true);
+
+    if (passwordInputValue.length === 0) {
+      setIsPasswordCorrect(false);
+      setPasswordErrorMessage("Fill out the missing field.");
+      return;
+    }
+
+    setIsPasswordCorrect(true);
+
     axios({
       method: "POST",
-      data: { email: "test@test.com", password: "123" }, // test login data
+      data: { email: emailInputValue, password: passwordInputValue }, // test login data
       url: url,
     })
       .then((response) => {
@@ -68,14 +86,16 @@ function Login() {
           isCorrect: isEmailCorrect,
           errorMessage: !isEmailCorrect ? emailErrorMessage : "",
         }}
+        inputHandler={(input) => setEmailInputValue(input)}
       />
       <Input
         configuration={{
           type: "password",
           text: "Password",
           isCorrect: isPasswordCorrect,
-          errorMessage: "Incorrect Password.",
+          errorMessage: !isPasswordCorrect ? passwordErrorMessage : "",
         }}
+        inputHandler={(input) => setPasswordInputValue(input)}
       />
       <div className="login-register-btn-container">
         <button className="login-btn" onClick={loginHandler}>
