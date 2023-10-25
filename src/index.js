@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import Home from "./components/Home";
 import ErrorPage from "./components/ErrorPage";
 import Men from "./components/Men";
@@ -13,6 +17,7 @@ import ProductDetails from "./components/ProductDetails";
 import Register from "./components/Register";
 import UserDashboard from "./components/UserDashboard";
 import App from "./components/App";
+import RequireAuth from "./components/RequireAuth";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +25,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     element: <App />,
     children: [
-      {path: "/home", element : <Home />},
+      { index: true, element: <Navigate to="/home" replace /> },
+      { path: "/home", element: <Home /> },
       { path: "/cart", element: <Cart /> },
       { path: "/men", element: <Men /> },
       { path: "/women", element: <Women /> },
@@ -28,9 +34,16 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
       { path: "/wish-list", element: <WishList /> },
       { path: "/product/:productId", element: <ProductDetails /> },
-      { path: "/user-dashboard", element: <UserDashboard /> },
+      {
+        path: "/user-dashboard",
+        element: (
+          <RequireAuth redirectTo={"/login"}>
+            <UserDashboard />
+          </RequireAuth>
+        ),
+      },
     ],
-  }
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

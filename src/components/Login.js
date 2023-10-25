@@ -4,10 +4,12 @@ import "./Login.css";
 import axios from "axios";
 
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LoginDispatchContext } from "../context/LoginContext";
 
 function Login() {
+  const navigate = useNavigate();
+
   const url = "http://localhost:8000/login";
   const dispatchUser = useContext(LoginDispatchContext);
 
@@ -28,6 +30,8 @@ function Login() {
           isLoggedIn: true,
           name: response.data.name,
         });
+
+        navigate("/home");
       })
       .catch((err) => console.log(err));
   };

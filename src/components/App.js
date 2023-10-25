@@ -1,5 +1,5 @@
 import "./App.css";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 
 import { cartReducer } from "../reducers/cartReducer";
 import { loginReducer } from "../reducers/loginReducer";
@@ -10,6 +10,8 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 
 function App() {
+  
+
   let location = useLocation();
 
   const [cart, dispatchCart] = useReducer(cartReducer, []);

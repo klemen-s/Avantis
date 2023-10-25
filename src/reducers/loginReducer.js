@@ -9,6 +9,13 @@ export function loginReducer(user, action) {
       user.name = action.name;
       return user;
     }
+    case "logout": {
+      localStorage.removeItem("jwt");
+      user.isLoggedIn = false;
+      user.name = "";
+      console.log(user);
+      return user;
+    }
     default: {
       throw Error("Unknown action: " + action.type);
     }
