@@ -16,6 +16,10 @@ function Login() {
   const [isEmailCorrect, setIsEmailCorrect] = useState(true);
   const [isPasswordCorrect, setIsPasswordCorrect] = useState(true);
 
+  const [emailErrorMessage, setEmailErrorMessage] = useState("");
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
+
+
   const loginHandler = () => {
     axios({
       method: "POST",
@@ -24,6 +28,7 @@ function Login() {
     })
       .then((response) => {
         console.log(response);
+
         localStorage.setItem("jwt", response.data.jwt);
         dispatchUser({
           type: "login",
@@ -33,7 +38,25 @@ function Login() {
 
         navigate("/home");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.response.data.emailError) {
+          setIsEmailCorrect(false);
+          setEmailErrorMessage(err.response.data.emailError);
+          return;
+        }
+
+        setIsEmailCorrect(true);
+        setEmailErrorMessage("");
+
+        if (err.response.data.passwordError) {
+          setIsPasswordCorrect(false);
+          setPasswordErrorMessage(err.response.data.passwordError);
+          return;
+        }
+
+        setIsPasswordCorrect(true);
+        setPasswordErrorMessage("");
+      });
   };
 
   return (
@@ -43,7 +66,7 @@ function Login() {
           type: "text",
           text: "E-Mail",
           isCorrect: isEmailCorrect,
-          errorMessage: "Incorrect Email.",
+          errorMessage: !isEmailCorrect ? emailErrorMessage : "",
         }}
       />
       <Input

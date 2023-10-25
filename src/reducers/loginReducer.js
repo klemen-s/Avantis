@@ -13,7 +13,6 @@ export function loginReducer(user, action) {
       localStorage.removeItem("jwt");
       user.isLoggedIn = false;
       user.name = "";
-      console.log(user);
       return user;
     }
     default: {
