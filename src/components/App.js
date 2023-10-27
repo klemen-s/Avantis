@@ -18,6 +18,10 @@ function App() {
     name: "",
   });
 
+  useEffect(() => {
+    dispatchUser({ type: "checkLogin" });
+  });
+
   return (
     <LoginContext.Provider value={user}>
       <LoginDispatchContext.Provider value={dispatchUser}>

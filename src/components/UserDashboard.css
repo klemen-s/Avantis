@@ -19,5 +19,5 @@
   color: var(--my-black);
   font-size: 1.2rem;
   border: 1px solid var(--my-black);
-  background-color: var(--my-white);
+  background-color: white;
 }

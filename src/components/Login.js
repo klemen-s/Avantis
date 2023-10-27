@@ -6,11 +6,11 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginDispatchContext } from "../context/LoginContext";
+import { useLogin } from "../hooks/useLogin";
 
 function Login() {
   const navigate = useNavigate();
 
-  const url = "http://localhost:8000/login";
   const dispatchUser = useContext(LoginDispatchContext);
 
   const [isEmailCorrect, setIsEmailCorrect] = useState(true);
@@ -22,13 +22,14 @@ function Login() {
   const [emailInputValue, setEmailInputValue] = useState("");
   const [passwordInputValue, setPasswordInputValue] = useState("");
 
-  const loginHandler = () => {
+  const sendLoginRequest = useLogin();
+
+  const loginHandler = async () => {
     if (emailInputValue.length === 0) {
       setIsEmailCorrect(false);
       setEmailErrorMessage("Fill out the missing field.");
       return;
     }
-
     setIsEmailCorrect(true);
 
     if (passwordInputValue.length === 0) {
@@ -36,45 +37,37 @@ function Login() {
       setPasswordErrorMessage("Fill out the missing field.");
       return;
     }
-
     setIsPasswordCorrect(true);
 
-    axios({
-      method: "POST",
-      data: { email: emailInputValue, password: passwordInputValue }, // test login data
-      url: url,
-    })
-      .then((response) => {
-        console.log(response);
+    const userData = await sendLoginRequest(
+      emailInputValue,
+      passwordInputValue
+    );
 
-        localStorage.setItem("jwt", response.data.jwt);
-        dispatchUser({
-          type: "login",
-          isLoggedIn: true,
-          name: response.data.name,
-        });
+    if (userData.isEmailCorrect === false) {
+      setIsEmailCorrect(false);
+      setEmailErrorMessage(userData.emailErrorMessage);
+      return;
+    }
 
-        navigate("/home");
-      })
-      .catch((err) => {
-        if (err.response.data.emailError) {
-          setIsEmailCorrect(false);
-          setEmailErrorMessage(err.response.data.emailError);
-          return;
-        }
+    setIsEmailCorrect(true);
+    setEmailErrorMessage("");
 
-        setIsEmailCorrect(true);
-        setEmailErrorMessage("");
+    if (userData.isPasswordCorrect === false) {
+      setIsPasswordCorrect(false);
+      setPasswordErrorMessage(userData.passwordErrorMessage);
+      return;
+    }
 
-        if (err.response.data.passwordError) {
-          setIsPasswordCorrect(false);
-          setPasswordErrorMessage(err.response.data.passwordError);
-          return;
-        }
+    setIsPasswordCorrect(true);
+    setPasswordErrorMessage("");
 
-        setIsPasswordCorrect(true);
-        setPasswordErrorMessage("");
-      });
+    dispatchUser({
+      type: "login",
+      isLoggedIn: true,
+      name: userData.name,
+    });
+    navigate("/home");
   };
 
   return (

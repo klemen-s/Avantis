@@ -10,7 +10,6 @@ import { LoginContext } from "../context/LoginContext";
 function Sidebar({ params }) {
   const user = useContext(LoginContext);
 
-
   return (
     <div className={params.isSidebarActive ? "sidebar open" : "sidebar"}>
       <div className="sidebar-upper">
