@@ -43,6 +43,11 @@
   cursor: pointer;
 }
 
+.active-btn {
+  background-color: var(--my-black);
+  color: white;
+}
+
 .add-to-cart-btn {
   width: 100%;
   height: 3rem;

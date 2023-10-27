@@ -10,8 +10,6 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 
 function App() {
-  
-
   let location = useLocation();
 
   const [cart, dispatchCart] = useReducer(cartReducer, []);

@@ -1,5 +1,5 @@
 import "./UserDashboard.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { LoginDispatchContext } from "../context/LoginContext";
 import { useContext } from "react";
 
@@ -8,13 +8,25 @@ function UserDashboard() {
   const loginDispatch = useContext(LoginDispatchContext);
 
   const signOutHandler = () => {
-    loginDispatch({ type: "logout" })
+    loginDispatch({ type: "logout" });
     navigate("/login");
   };
 
   return (
     <>
-      <button onClick={signOutHandler}>Sign Out</button>
+      <div className="user-dashboard-btn">
+        <Link to={"/orders"}>
+          <div className="user-dashboard-btn orders-btn">Orders</div>
+        </Link>
+      </div>
+      <div className="user-dashboard-btn">
+        <button
+          className="user-dashboard-btn sign-out-btn"
+          onClick={signOutHandler}
+        >
+          Sign Out
+        </button>
+      </div>
     </>
   );
 }

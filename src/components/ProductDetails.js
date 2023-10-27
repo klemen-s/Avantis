@@ -8,8 +8,9 @@ import axios from "axios";
 
 function ProductDetails() {
   let { productId } = useParams();
+
   const [product, setProduct] = useState({});
-  const [size, setSize] = useState(undefined);
+  const [selectedSize, setSelectedSize] = useState(undefined);
 
   const dispatch = useContext(CartDispatchContext);
 
@@ -25,26 +26,26 @@ function ProductDetails() {
   }, []);
 
   const addToCartHandler = () => {
-    if (size !== undefined) {
+    if (selectedSize !== undefined) {
       const price = product.price.slice(1);
 
       dispatch({
         type: "added",
         product: {
           productName: product.name,
-          size: size,
+          size: selectedSize,
           quantity: 1,
           imageUrl: product.imageUrl,
           price: parseFloat(price).toFixed(2),
           id: product._id,
         },
       });
-      setSize(undefined);
+      setSelectedSize(undefined);
     }
   };
 
   const sizeHandler = (size) => {
-    setSize(size);
+    setSelectedSize(size);
   };
 
   return (
@@ -64,7 +65,9 @@ function ProductDetails() {
         <div className="sizes-container">
           {product.sizes.map((size) => (
             <button
-              className="size-btn"
+              className={
+                size === selectedSize ? "size-btn active-btn" : "size-btn"
+              }
               key={size}
               onClick={() => sizeHandler(size)}
             >

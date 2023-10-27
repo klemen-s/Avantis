@@ -26,7 +26,7 @@ function Navbar({ cartItemsLength }) {
   }, [location]);
 
   return (
-    <div>
+    <>
       <div className="navbar">
         {!isHomePage && (
           <h1 className="navbar-title">
@@ -52,7 +52,7 @@ function Navbar({ cartItemsLength }) {
           clickHandler: clickHandler,
         }}
       />
-    </div>
+    </>
   );
 }
 

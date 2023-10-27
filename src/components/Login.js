@@ -101,7 +101,7 @@ function Login() {
         <button className="login-btn" onClick={loginHandler}>
           Sign In
         </button>
-        <Link to={"/dashboard/register"}>
+        <Link to={"/register"}>
           <button className="register-btn">Register</button>
         </Link>
       </div>
