@@ -68,6 +68,7 @@ function Login() {
       name: userData.name,
       userId: userData.userId,
     });
+
     navigate("/home");
   };
 

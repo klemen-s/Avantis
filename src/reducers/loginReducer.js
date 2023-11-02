@@ -7,6 +7,8 @@ export function loginReducer(user, action) {
       }
       user.isLoggedIn = localStorage.getItem("jwt") ? action.isLoggedIn : false;
       user.name = action.name;
+      user.userId = action.userId;
+
       return user;
     }
     case "logout": {
@@ -23,6 +25,7 @@ export function loginReducer(user, action) {
       if (localStorage.getItem("jwt") && localStorage.getItem("name")) {
         user.isLoggedIn = true;
         user.name = localStorage.getItem("name");
+        user.userId = localStorage.getItem("userId");
       }
       return user;
     }

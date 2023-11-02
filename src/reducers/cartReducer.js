@@ -37,8 +37,6 @@ export function cartReducer(cart, action) {
       return [...cart];
     }
     case "checkout": {
-      
-      
     }
     default: {
       throw Error("Unknown action: " + action.type);

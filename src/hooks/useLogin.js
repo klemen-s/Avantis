@@ -5,6 +5,7 @@ export function useLogin() {
 
   async function sendLoginRequest(email, password) {
     try {
+      // use of await for letting the data load;
       const response = await axios.post(url, {
         email: email,
         password: password,
@@ -13,7 +14,12 @@ export function useLogin() {
       localStorage.setItem("name", response.data.name);
       localStorage.setItem("userId", response.data.userId);
 
-      return { name: response.data.name };
+      const userData = {
+        name: response.data.name,
+        userId: response.data.userId,
+      };
+
+      return userData;
     } catch (err) {
       if (err.response.data.emailError) {
         return {

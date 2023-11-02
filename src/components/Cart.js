@@ -1,7 +1,7 @@
 import "./Cart.css";
 import CartItem from "./CartItem";
 
-import { CartContext,CartDispatchContext } from "../context/CartContext";
+import { CartContext, CartDispatchContext } from "../context/CartContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -31,10 +31,11 @@ function Cart() {
     setCartError(false);
 
     // create new order
-    const userId= localStorage.getItem("")
-    axios.post("/post-order")
-    cartDispatch({type : "checkout"})
-    
+    const userId = localStorage.getItem("userId");
+    const postUrl = "http://localhost:8000/post-order";
+    axios.post(postUrl, { userId: userId, orderItems: cart });
+    // cartDispatch({ type: "checkout" });
+
     navigate("/orders");
   };
 
