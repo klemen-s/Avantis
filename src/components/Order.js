@@ -1,10 +1,7 @@
-import "./Order.css";
+import React from "react";
 
 function Order({ order }) {
-
-    return <div className="order">
-        <h1>{order.id }</h1>
-  </div>;
+  return <div>{order._id}</div>;
 }
 
 export default Order;

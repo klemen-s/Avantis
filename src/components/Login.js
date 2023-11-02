@@ -1,8 +1,6 @@
 import Input from "./Input";
 import "./Login.css";
 
-import axios from "axios";
-
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginDispatchContext } from "../context/LoginContext";

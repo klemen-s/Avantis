@@ -1,26 +1,28 @@
 import "./Orders.css";
-import axios from "axios";
 import { useEffect, useState } from "react";
+
+import { useOrder } from "../hooks/useOrder";
+
+import Order from "./Order";
 
 function Orders() {
   const [orders, setOrders] = useState([]);
+  const getOrders = useOrder();
 
-  async function getOrders() {
-    const getUrl = "http://localhost:8000/get-orders";
-    const userId = localStorage.getItem("userId");
-
-    const response = await axios.post(getUrl, { userId: userId });
-    const dbOrders = response.data.orders;
-
-    setOrders(dbOrders);
-  }
+  const orderItems = orders.map((order) => {
+    return <Order order={order} key={order._id} />;
+  });
 
   useEffect(() => {
-    getOrders();
-    console.log(orders);
+    async function getOrderData() {
+      const ordersData = await getOrders();
+      setOrders(ordersData);
+    }
+
+    getOrderData();
   }, []);
 
-  return <div>Orders</div>;
+  return <div>{orderItems}</div>;
 }
 
 export default Orders;
