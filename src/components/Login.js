@@ -66,6 +66,7 @@ function Login() {
       type: "login",
       isLoggedIn: true,
       name: userData.name,
+      userId: userData.userId,
     });
     navigate("/home");
   };

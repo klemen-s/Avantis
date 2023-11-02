@@ -1,11 +1,18 @@
 import "./Cart.css";
 import CartItem from "./CartItem";
 
-import { CartContext } from "../context/CartContext";
-import { useContext } from "react";
+import { CartContext,CartDispatchContext } from "../context/CartContext";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import axios from "axios";
 
 function Cart() {
   const cart = useContext(CartContext);
+  const cartDispatch = useContext(CartDispatchContext);
+  const navigate = useNavigate();
+
+  const [cartError, setCartError] = useState(false);
 
   const cartItems = cart?.map((cartItem, i) => {
     return <CartItem cartItem={cartItem} key={i} />;
@@ -16,7 +23,19 @@ function Cart() {
   }, 0);
 
   const checkoutHandler = () => {
-    console.log("Checkout");
+    if (cart.length === 0) {
+      setCartError(true);
+      return;
+    }
+
+    setCartError(false);
+
+    // create new order
+    const userId= localStorage.getItem("")
+    axios.post("/post-order")
+    cartDispatch({type : "checkout"})
+    
+    navigate("/orders");
   };
 
   return (
@@ -30,6 +49,7 @@ function Cart() {
           <p>£{totalPrice ? parseFloat(totalPrice).toFixed(2) : 0}</p>
         </div>
         <button onClick={checkoutHandler}>Checkout</button>
+        {cartError && <div className="cart-error">No items in cart.</div>}
       </div>
     </>
   );

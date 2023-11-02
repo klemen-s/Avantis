@@ -12,9 +12,11 @@ export function loginReducer(user, action) {
     case "logout": {
       localStorage.removeItem("jwt");
       localStorage.removeItem("name");
-      
+      localStorage.removeItem("userId");
+
       user.isLoggedIn = false;
       user.name = "";
+      user.userId = "";
       return user;
     }
     case "checkLogin": {

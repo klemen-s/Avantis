@@ -11,6 +11,7 @@ export function useLogin() {
       });
       localStorage.setItem("jwt", response.data.jwt);
       localStorage.setItem("name", response.data.name);
+      localStorage.setItem("userId", response.data.userId);
 
       return { name: response.data.name };
     } catch (err) {

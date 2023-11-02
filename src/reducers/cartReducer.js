@@ -9,9 +9,9 @@ export function cartReducer(cart, action) {
           cartItem.size === action.product.size
         ) {
           duplicatedItem = true;
-          return { ...cartItem, quantity: cartItem.quantity+1 };
+          return { ...cartItem, quantity: cartItem.quantity + 1 };
         } else {
-          return {...cartItem};
+          return { ...cartItem };
         }
       });
 
@@ -35,6 +35,10 @@ export function cartReducer(cart, action) {
       cart.splice(removeItemIndex, 1);
 
       return [...cart];
+    }
+    case "checkout": {
+      
+      
     }
     default: {
       throw Error("Unknown action: " + action.type);
