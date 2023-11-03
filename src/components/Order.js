@@ -1,8 +1,6 @@
 import "./Order.css";
 
 function Order({ order }) {
-  console.log(order);
-
   const total = order.orderItems.reduce((acc, current) => {
     return acc + parseFloat(current.price);
   }, 0);

@@ -2,12 +2,13 @@ import "./Register.css";
 import Input from "./Input";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
 function Register() {
   const url = "http://localhost:8000/register";
+  const navigate = useNavigate();
 
   const [isNameCorrect, setIsNameCorrect] = useState(true);
   const [isEmailCorrect, setIsEmailCorrect] = useState(true);
@@ -21,6 +22,31 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState(null);
 
   const registerHandler = () => {
+    if (name === null || name.length === 0) {
+      setIsNameCorrect(false);
+      return;
+    }
+
+    if (email === null || email.length === 0) {
+      setIsEmailCorrect(false);
+      return;
+    }
+
+    if (password === null || password.length === 0) {
+      setisPasswordCorrect(false);
+      return;
+    }
+
+    if (confirmPassword === null || confirmPassword.length === 0) {
+      setisConfirmPasswordCorrect(false);
+      return;
+    }
+
+    if (password === confirmPassword) {
+      setisPasswordCorrect(true);
+      setisConfirmPasswordCorrect(true);
+    }
+
     axios({
       method: "POST",
       data: {
@@ -31,8 +57,24 @@ function Register() {
       },
       url: url,
     })
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
+      .then((response) => {
+        navigate("/login");
+      })
+      .catch((err) => {
+        const errorName = err.response.data.name;
+
+        switch (errorName) {
+          case "EMAIL_ERROR": {
+            setIsEmailCorrect(false);
+            return;
+          }
+          case "PASSWORD_MATCH_ERROR": {
+            setisPasswordCorrect(false);
+            setisConfirmPasswordCorrect(false);
+            return;
+          }
+        }
+      });
   };
 
   return (
@@ -75,12 +117,12 @@ function Register() {
           type: "password",
           text: "Password",
           isCorrect: isPasswordCorrect,
-          errorMessage: "Missing input field",
+          errorMessage: "Missing input field or passwords do not match",
         }}
         inputHandler={(e) => {
           setPassword(e);
 
-          if (e.length === 0 || e !== confirmPassword) {
+          if (e.length === 0) {
             setisPasswordCorrect(false);
           } else {
             setisPasswordCorrect(true);

@@ -43,7 +43,7 @@ function Cart() {
     axios.post(postUrl, { userId: userId, orderItems: cart });
     cartDispatch({ type: "checkout" });
 
-    navigate("/orders");
+    navigate("/user-dashboard");
   };
 
   return (
