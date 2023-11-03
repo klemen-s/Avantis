@@ -22,7 +22,7 @@ function Orders() {
     getOrderData();
   }, []);
 
-  return <div>{orderItems}</div>;
+  return <>{orderItems}</>;
 }
 
 export default Orders;

@@ -7,7 +7,6 @@ export function useOrder() {
     const userId = localStorage.getItem("userId");
 
     const response = await axios.post(getUrl, { userId: userId });
-    console.log(response);
     const dbOrders = response.data.orders;
 
     return dbOrders;

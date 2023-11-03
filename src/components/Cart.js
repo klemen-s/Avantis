@@ -4,12 +4,15 @@ import CartItem from "./CartItem";
 import { CartContext, CartDispatchContext } from "../context/CartContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LoginContext } from "../context/LoginContext";
 
 import axios from "axios";
 
 function Cart() {
   const cart = useContext(CartContext);
   const cartDispatch = useContext(CartDispatchContext);
+  const user = useContext(LoginContext);
+
   const navigate = useNavigate();
 
   const [cartError, setCartError] = useState(false);
@@ -23,6 +26,10 @@ function Cart() {
   }, 0);
 
   const checkoutHandler = () => {
+    if (!user.isLoggedIn) {
+      navigate("/login");
+      return;
+    }
     if (cart.length === 0) {
       setCartError(true);
       return;
@@ -34,7 +41,7 @@ function Cart() {
     const userId = localStorage.getItem("userId");
     const postUrl = "http://localhost:8000/post-order";
     axios.post(postUrl, { userId: userId, orderItems: cart });
-    // cartDispatch({ type: "checkout" });
+    cartDispatch({ type: "checkout" });
 
     navigate("/orders");
   };
