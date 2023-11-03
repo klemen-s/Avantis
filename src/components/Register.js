@@ -15,14 +15,19 @@ function Register() {
   const [isConfirmPasswordCorrect, setisConfirmPasswordCorrect] =
     useState(true);
 
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [confirmPassword, setConfirmPassword] = useState(null);
+
   const registerHandler = () => {
     axios({
       method: "POST",
       data: {
-        name: "Joe",
-        email: "test@test.com",
-        password: "123",
-        confirmPassword: "123",
+        name: name,
+        email: email,
+        password: password,
+        confirmPassword: confirmPassword,
       },
       url: url,
     })
@@ -39,6 +44,15 @@ function Register() {
           isCorrect: isNameCorrect,
           errorMessage: "Missing input field.",
         }}
+        inputHandler={(e) => {
+          setName(e);
+
+          if (e.length > 0) {
+            setIsNameCorrect(true);
+          } else {
+            setIsNameCorrect(false);
+          }
+        }}
       />
       <Input
         configuration={{
@@ -46,6 +60,14 @@ function Register() {
           text: "E-Mail",
           isCorrect: isEmailCorrect,
           errorMessage: "Missing input field or E-Mail is already in use.",
+        }}
+        inputHandler={(e) => {
+          setEmail(e);
+          if (e.length === 0) {
+            setIsEmailCorrect(false);
+          } else {
+            setIsEmailCorrect(true);
+          }
         }}
       />
       <Input
@@ -55,6 +77,15 @@ function Register() {
           isCorrect: isPasswordCorrect,
           errorMessage: "Missing input field",
         }}
+        inputHandler={(e) => {
+          setPassword(e);
+
+          if (e.length === 0 || e !== confirmPassword) {
+            setisPasswordCorrect(false);
+          } else {
+            setisPasswordCorrect(true);
+          }
+        }}
       />
       <Input
         configuration={{
@@ -62,6 +93,15 @@ function Register() {
           text: "Confirm Password",
           isCorrect: isConfirmPasswordCorrect,
           errorMessage: "Missing input field or passwords do not match.",
+        }}
+        inputHandler={(e) => {
+          setConfirmPassword(e);
+
+          if (e.length === 0 || e !== password) {
+            setisConfirmPasswordCorrect(false);
+          } else {
+            setisConfirmPasswordCorrect(true);
+          }
         }}
       />
       <div className="login-register-btn-container">
