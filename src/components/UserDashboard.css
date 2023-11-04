@@ -21,3 +21,15 @@
   border: 1px solid var(--my-black);
   background-color: white;
 }
+
+.user-dashboard-btn:hover{
+  background-color: var(--my-black);
+  color: white;
+}
+
+@media only screen and (min-width: 1024px) {
+  .user-dashboard-container {
+    width: 20%;
+  }
+
+}

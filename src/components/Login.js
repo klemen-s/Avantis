@@ -72,31 +72,33 @@ function Login() {
 
   return (
     <>
-      <Input
-        configuration={{
-          type: "text",
-          text: "E-Mail",
-          isCorrect: isEmailCorrect,
-          errorMessage: !isEmailCorrect ? emailErrorMessage : "",
-        }}
-        inputHandler={(input) => setEmailInputValue(input)}
-      />
-      <Input
-        configuration={{
-          type: "password",
-          text: "Password",
-          isCorrect: isPasswordCorrect,
-          errorMessage: !isPasswordCorrect ? passwordErrorMessage : "",
-        }}
-        inputHandler={(input) => setPasswordInputValue(input)}
-      />
-      <div className="login-register-btn-container">
-        <button className="login-btn" onClick={loginHandler}>
-          Sign In
-        </button>
-        <Link to={"/register"}>
-          <button className="register-btn">Register</button>
-        </Link>
+      <div className="user-container-wrapper">
+        <Input
+          configuration={{
+            type: "text",
+            text: "E-Mail",
+            isCorrect: isEmailCorrect,
+            errorMessage: !isEmailCorrect ? emailErrorMessage : "",
+          }}
+          inputHandler={(input) => setEmailInputValue(input)}
+        />
+        <Input
+          configuration={{
+            type: "password",
+            text: "Password",
+            isCorrect: isPasswordCorrect,
+            errorMessage: !isPasswordCorrect ? passwordErrorMessage : "",
+          }}
+          inputHandler={(input) => setPasswordInputValue(input)}
+        />
+        <div className="login-register-btn-container">
+          <button className="login-btn" onClick={loginHandler}>
+            Sign In
+          </button>
+          <Link to={"/register"}>
+            <button className="register-btn">Register</button>
+          </Link>
+        </div>
       </div>
     </>
   );

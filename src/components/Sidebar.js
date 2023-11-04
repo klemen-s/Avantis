@@ -1,6 +1,5 @@
 import "./Sidebar.css";
 import menuX from "../assets/menu-x.png";
-import hertIcon from "../assets/heart-emoji.png";
 import userIcon from "../assets/user-icon.png";
 
 import { Link } from "react-router-dom";
@@ -44,15 +43,6 @@ function Sidebar({ params }) {
               )}
             </p>
           </div>
-          <div className="sidebar-content-element-spacer">
-            <div className="heart-icon-wrapper">
-              <img src={hertIcon} alt="Heart Icon" />
-            </div>
-            <p id="heart-icon-text">
-              <Link to={"wish-list"}>Wish List</Link>
-            </p>
-          </div>
-          <div className="grey-line"></div>
         </div>
         <div className="sidebar-content-footer">
           <p id="footer-text-one">Need Help?</p>

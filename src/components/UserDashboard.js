@@ -14,18 +14,20 @@ function UserDashboard() {
 
   return (
     <>
-      <div className="user-dashboard-btn">
-        <Link to={"/orders"}>
-          <div className="user-dashboard-btn orders-btn">Orders</div>
-        </Link>
-      </div>
-      <div className="user-dashboard-btn">
-        <button
-          className="user-dashboard-btn sign-out-btn"
-          onClick={signOutHandler}
-        >
-          Sign Out
-        </button>
+      <div className="user-dashboard-container">
+        <div className="user-dashboard-btn">
+          <Link to={"/orders"}>
+            <div className="user-dashboard-btn orders-btn">Orders</div>
+          </Link>
+        </div>
+        <div className="user-dashboard-btn">
+          <button
+            className="user-dashboard-btn sign-out-btn"
+            onClick={signOutHandler}
+          >
+            Sign Out
+          </button>
+        </div>
       </div>
     </>
   );

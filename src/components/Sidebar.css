@@ -13,8 +13,8 @@
 
 .open {
   transform: translateX(0);
-  transition: cubic-bezier(.3,.46,.45,.94) .57s;
-  visibility:visible;
+  transition: cubic-bezier(0.3, 0.46, 0.45, 0.94) 0.57s;
+  visibility: visible;
 }
 
 .sidebar-upper {
@@ -130,4 +130,15 @@
 
 #footer-text-two span {
   text-decoration: underline;
+}
+
+@media only screen and (min-width: 1024px) {
+  .sidebar {
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+    box-shadow: -8px 3px 12px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: -8px 3px 12px 2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: -8px 3px 12px 2px rgba(0, 0, 0, 0.3);
+  }
 }

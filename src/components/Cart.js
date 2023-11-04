@@ -48,16 +48,21 @@ function Cart() {
 
   return (
     <>
-      <h1 className="cart-heading">Cart</h1>
-      <div className="grey-line"></div>
-      <div className="cart-items-container">{cartItems}</div>
-      <div className="checkout">
-        <div className="total-spend">
-          <p>Total:</p>
-          <p>£{totalPrice ? parseFloat(totalPrice).toFixed(2) : 0}</p>
+      <div className="cart-wrapper">
+        <h1 className="cart-heading">Cart</h1>
+        <div className="cart-items-container">{cartItems}</div>
+        <div className="checkout">
+          <div className="total-spend">
+            <p>Total:</p>
+            <p>£{totalPrice ? parseFloat(totalPrice).toFixed(2) : 0}</p>
+          </div>
+          <div className="checkout-btn-wrapper">
+            <button className="checkout-btn" onClick={checkoutHandler}>
+              Checkout
+            </button>
+          </div>
+          {cartError && <div className="cart-error">No items in cart.</div>}
         </div>
-        <button onClick={checkoutHandler}>Checkout</button>
-        {cartError && <div className="cart-error">No items in cart.</div>}
       </div>
     </>
   );

@@ -1,3 +1,6 @@
+.product-details {
+}
+
 .product-detail-image-wrapper {
   width: 100%;
   height: 100%;
@@ -20,12 +23,13 @@
 
 .sizes-container {
   width: 100%;
-  min-height: 10rem;
+  min-height: 8rem;
   margin-top: 2rem;
   display: flex;
   align-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  column-gap: 0.8rem;
+  column-gap: 1.8rem;
 }
 
 .size-btn {
@@ -62,4 +66,21 @@
 .add-to-cart-btn:hover {
   color: white;
   background-color: var(--my-black);
+}
+
+@media only screen and (min-width: 1024px) {
+  .product-detail-image-wrapper {
+    width: 30rem;
+    height: 50rem;
+  }
+
+  .product-details {
+    display: flex;
+    justify-content: space-around;
+    width: 65%;
+  }
+
+  .sizes-container {
+    margin-top: 0;
+  }
 }

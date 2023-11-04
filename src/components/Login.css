@@ -38,3 +38,14 @@
   background-color: white;
   border: 1px solid var(--my-black);
 }
+
+@media only screen and (min-width: 1024px) {
+  .user-container-wrapper {
+    width: 27rem;
+    height: 100%;
+  }
+
+  .login-register-btn-container {
+    width: 50%;
+  }
+}

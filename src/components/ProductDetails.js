@@ -50,35 +50,40 @@ function ProductDetails() {
 
   return (
     <>
-      <div className="product-detail-image-wrapper">
-        <img
-          className="product-detail-image"
-          src={product.imageUrl}
-          alt="Product"
-        />
-      </div>
-      <div className="product-detail-info">
-        <p>{product.name}</p>
-        <p>{product.price}</p>
-      </div>
-      {product.sizes && (
-        <div className="sizes-container">
-          {product.sizes.map((size) => (
-            <button
-              className={
-                size === selectedSize ? "size-btn active-btn" : "size-btn"
-              }
-              key={size}
-              onClick={() => sizeHandler(size)}
-            >
-              {size}
-            </button>
-          ))}
+      <div className="product-details">
+        <div className="product-detail-image-wrapper">
+          <img
+            className="product-detail-image"
+            src={product.imageUrl}
+            alt="Product"
+          />
         </div>
-      )}
-      <button className="add-to-cart-btn" onClick={addToCartHandler}>
-        Add To Cart
-      </button>
+        <div>
+          <div className="product-detail-info">
+            <p>{product.name}</p>
+            <p>{product.price}</p>
+          </div>
+          {product.sizes && (
+            <div className="sizes-container">
+              {product.sizes.map((size) => (
+                <button
+                  className={
+                    size === selectedSize ? "size-btn active-btn" : "size-btn"
+                  }
+                  key={size}
+                  onClick={() => sizeHandler(size)}
+                >
+                  {size}
+                </button>
+              ))}
+            </div>
+          )}
+
+          <button className="add-to-cart-btn" onClick={addToCartHandler}>
+            Add To Cart
+          </button>
+        </div>
+      </div>
     </>
   );
 }

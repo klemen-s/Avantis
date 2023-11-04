@@ -79,80 +79,82 @@ function Register() {
 
   return (
     <>
-      <Input
-        configuration={{
-          type: "text",
-          text: "Name",
-          isCorrect: isNameCorrect,
-          errorMessage: "Missing input field.",
-        }}
-        inputHandler={(e) => {
-          setName(e);
+      <div className="user-container-wrapper">
+        <Input
+          configuration={{
+            type: "text",
+            text: "Name",
+            isCorrect: isNameCorrect,
+            errorMessage: "Missing input field.",
+          }}
+          inputHandler={(e) => {
+            setName(e);
 
-          if (e.length > 0) {
-            setIsNameCorrect(true);
-          } else {
-            setIsNameCorrect(false);
-          }
-        }}
-      />
-      <Input
-        configuration={{
-          type: "email",
-          text: "E-Mail",
-          isCorrect: isEmailCorrect,
-          errorMessage: "Missing input field or E-Mail is already in use.",
-        }}
-        inputHandler={(e) => {
-          setEmail(e);
-          if (e.length === 0) {
-            setIsEmailCorrect(false);
-          } else {
-            setIsEmailCorrect(true);
-          }
-        }}
-      />
-      <Input
-        configuration={{
-          type: "password",
-          text: "Password",
-          isCorrect: isPasswordCorrect,
-          errorMessage: "Missing input field or passwords do not match",
-        }}
-        inputHandler={(e) => {
-          setPassword(e);
+            if (e.length > 0) {
+              setIsNameCorrect(true);
+            } else {
+              setIsNameCorrect(false);
+            }
+          }}
+        />
+        <Input
+          configuration={{
+            type: "email",
+            text: "E-Mail",
+            isCorrect: isEmailCorrect,
+            errorMessage: "Missing input field or E-Mail is already in use.",
+          }}
+          inputHandler={(e) => {
+            setEmail(e);
+            if (e.length === 0) {
+              setIsEmailCorrect(false);
+            } else {
+              setIsEmailCorrect(true);
+            }
+          }}
+        />
+        <Input
+          configuration={{
+            type: "password",
+            text: "Password",
+            isCorrect: isPasswordCorrect,
+            errorMessage: "Missing input field or passwords do not match",
+          }}
+          inputHandler={(e) => {
+            setPassword(e);
 
-          if (e.length === 0) {
-            setisPasswordCorrect(false);
-          } else {
-            setisPasswordCorrect(true);
-          }
-        }}
-      />
-      <Input
-        configuration={{
-          type: "password",
-          text: "Confirm Password",
-          isCorrect: isConfirmPasswordCorrect,
-          errorMessage: "Missing input field or passwords do not match.",
-        }}
-        inputHandler={(e) => {
-          setConfirmPassword(e);
+            if (e.length === 0) {
+              setisPasswordCorrect(false);
+            } else {
+              setisPasswordCorrect(true);
+            }
+          }}
+        />
+        <Input
+          configuration={{
+            type: "password",
+            text: "Confirm Password",
+            isCorrect: isConfirmPasswordCorrect,
+            errorMessage: "Missing input field or passwords do not match.",
+          }}
+          inputHandler={(e) => {
+            setConfirmPassword(e);
 
-          if (e.length === 0 || e !== password) {
-            setisConfirmPasswordCorrect(false);
-          } else {
-            setisConfirmPasswordCorrect(true);
-          }
-        }}
-      />
-      <div className="login-register-btn-container">
-        <button className="login-btn" onClick={registerHandler}>
-          Register
-        </button>
-        <Link to={"/login"}>
-          <button className="register-btn">Sign In</button>
-        </Link>
+            if (e.length === 0 || e !== password) {
+              setisConfirmPasswordCorrect(false);
+            } else {
+              setisConfirmPasswordCorrect(true);
+            }
+          }}
+        />
+        <div className="login-register-btn-container">
+          <button className="login-btn" onClick={registerHandler}>
+            Register
+          </button>
+          <Link to={"/login"}>
+            <button className="register-btn">Sign In</button>
+          </Link>
+        </div>
       </div>
     </>
   );

@@ -63,6 +63,17 @@
 }
 
 .order-info p:nth-child(2) {
-    font-size: 0.95rem;
+  font-size: 0.95rem;
   font-weight: 600;
+}
+
+@media only screen and (min-width: 1024px) {
+  .order {
+    width: 30%;
+    height: 100%;
+  }
+  .order-info {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
 }
