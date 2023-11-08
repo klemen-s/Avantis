@@ -69,7 +69,7 @@
 
 @media only screen and (min-width: 1024px) {
   .order {
-    width: 30%;
+    width: 25rem;
     height: 100%;
   }
   .order-info {

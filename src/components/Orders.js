@@ -1,6 +1,5 @@
 import "./Orders.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 import { useOrder } from "../hooks/useOrder";
 
@@ -26,7 +25,7 @@ function Orders() {
   return (
     <div className="order-items-wrapper">
       {orders.length !== 0 ? (
-        { orderItems }
+        <div className="order-items">{orderItems}</div>
       ) : (
         <p className="orders">No Orders To Display</p>
       )}
