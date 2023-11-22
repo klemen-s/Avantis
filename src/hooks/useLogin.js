@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export function useLogin() {
-  const url = "http://localhost:8000/login";
-
+  // const url = "http://localhost:8000/login";
+  const url = process.env.REACT_APP_SERVER_URL + "login";
   async function sendLoginRequest(email, password) {
     try {
       // use of await for letting the data load;

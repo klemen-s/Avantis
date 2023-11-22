@@ -6,7 +6,6 @@ function RequireAuth({ children, redirectTo }) {
   const user = useContext(LoginContext);
   let isLoggedIn = user.isLoggedIn;
 
-
   return isLoggedIn ? children : <Navigate to={redirectTo} />;
 }
 

@@ -7,7 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Register() {
-  const url = "http://localhost:8000/register";
+  // const url = "http://localhost:8000/register";
+  const url = process.env.REACT_APP_SERVER_URL + "register";
   const navigate = useNavigate();
 
   const [isNameCorrect, setIsNameCorrect] = useState(true);

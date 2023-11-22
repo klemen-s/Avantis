@@ -1,11 +1,11 @@
 import "./App.css";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 
 import { cartReducer } from "../reducers/cartReducer";
 import { loginReducer } from "../reducers/loginReducer";
 import { CartDispatchContext, CartContext } from "../context/CartContext";
 import { LoginContext, LoginDispatchContext } from "../context/LoginContext";
-import { Outlet, useLocation, useMatch } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Home from "./Home";
 

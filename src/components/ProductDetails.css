@@ -1,4 +1,6 @@
 .product-details {
+  width: 100%;
+  height: 100%;
 }
 
 .product-detail-image-wrapper {
@@ -70,8 +72,8 @@
 
 @media only screen and (min-width: 1024px) {
   .product-detail-image-wrapper {
-    width: 30rem;
-    height: 50rem;
+    width: 100%;
+    height: 100%;
   }
 
   .product-details {
@@ -81,6 +83,15 @@
   }
 
   .sizes-container {
+    margin-top: 0;
+  }
+
+  .product-info-details {
+    margin-left: 5rem;
+  }
+
+  .product-detail-info p:nth-child(1) {
+    font-size: 1.3rem;
     margin-top: 0;
   }
 }

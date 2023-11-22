@@ -39,7 +39,8 @@ function Cart() {
 
     // create new order
     const userId = localStorage.getItem("userId");
-    const postUrl = "http://localhost:8000/post-order";
+    // const postUrl = "http://localhost:8000/post-order";
+    const postUrl = process.env.REACT_APP_SERVER_URL + "post-order";
     axios.post(postUrl, { userId: userId, orderItems: cart });
     cartDispatch({ type: "checkout" });
 

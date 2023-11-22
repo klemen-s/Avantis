@@ -16,7 +16,8 @@ function ProductDetails() {
 
   useEffect(() => {
     axios({
-      url: "http://localhost:8000/get-product",
+      // url: "http://localhost:8000/get-product",
+      url: process.env.REACT_APP_SERVER_URL + "get-product",
       params: { productId: productId },
     })
       .then((res) => {
@@ -58,7 +59,7 @@ function ProductDetails() {
             alt="Product"
           />
         </div>
-        <div>
+        <div className="product-info-details">
           <div className="product-detail-info">
             <p>{product.name}</p>
             <p>{product.price}</p>

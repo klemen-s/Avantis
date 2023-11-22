@@ -11,7 +11,6 @@ import Men from "./components/Men";
 import Women from "./components/Women";
 import Cart from "./components/Cart";
 import Login from "./components/Login";
-import WishList from "./components/WishList";
 import ProductDetails from "./components/ProductDetails";
 import Register from "./components/Register";
 import UserDashboard from "./components/UserDashboard";
@@ -31,19 +30,14 @@ const router = createBrowserRouter([
       { path: "/women", element: <Women /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
-      { path: "/wish-list", element: <WishList /> },
       { path: "/product/:productId", element: <ProductDetails /> },
-      // {
-      //   path: "/user-dashboard",
-      //   element: (
-      //     <RequireAuth redirectTo={"/login"}>
-      //       <UserDashboard />
-      //     </RequireAuth>
-      //   ),
-      // },
       {
         path: "/user-dashboard",
-        element: <UserDashboard />, // while developing for easier access
+        element: (
+          <RequireAuth redirectTo={"/login"}>
+            <UserDashboard />
+          </RequireAuth>
+        ),
       },
       { path: "/orders", element: <Orders /> },
       { path: "*", element: <Navigate to="/home" /> },

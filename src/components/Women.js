@@ -18,7 +18,8 @@ function Women() {
 
   useEffect(() => {
     axios({
-      url: "http://localhost:8000/get-products",
+      // url: "http://localhost:8000/get-products",
+      url: process.env.REACT_APP_SERVER_URL + "get-products",
       params: { gender: "woman" },
     })
       .then((res) => {
