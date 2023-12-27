@@ -11,9 +11,7 @@ A web-based application built with React for online shopping. This platform prov
 - **Order History**: View past order details.
 
 ## 🖥️ Technology Used
-
-- React
-- Other relevant libraries/frameworks
+![React Badge](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=for-the-badge)
 
 ## 🏁 Getting Started
 
@@ -40,4 +38,5 @@ Make sure you have Node.js and npm or Yarn installed on your system.
 4. Place orders for selected items.
 5. View order history to track previous purchases.
 
-[Backend](https://github.com/klemen-s/E-Commerce-App-BE.git)
+### Other repositories
+**[E-Commerce App Backend](https://github.com/klemen-s/E-Commerce-App-BE.git)**
